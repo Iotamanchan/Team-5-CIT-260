@@ -1,3 +1,5 @@
+package sevenyearsofplenty;
+
 
 import byui.cit260.sevenYearsOfPlenty.model.Player;
 
