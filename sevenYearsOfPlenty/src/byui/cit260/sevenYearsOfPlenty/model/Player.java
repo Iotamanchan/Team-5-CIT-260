@@ -5,7 +5,9 @@
  */
 package byui.cit260.sevenYearsOfPlenty.model;
 
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -14,7 +16,8 @@ import java.util.Objects;
 public class Player implements Serializable{
     //Class instance variables
     private String name;
-
+    private ArrayList<Game> games = new ArrayList<Game>();
+    
     public Player() {
     }
 
@@ -55,6 +58,14 @@ public class Player implements Serializable{
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
+    }
+
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
     }
     
     
