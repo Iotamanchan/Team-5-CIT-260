@@ -1,7 +1,11 @@
 package sevenyearsofplenty;
 
 
+import byui.cit260.sevenYearsOfPlenty.model.Crops;
+import byui.cit260.sevenYearsOfPlenty.model.Location;
 import byui.cit260.sevenYearsOfPlenty.model.Player;
+import byui.cit260.sevenYearsOfPlenty.model.Map;
+import byui.cit260.sevenYearsOfPlenty.model.Inventory;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,6 +30,38 @@ public class SevenYearsOfPlenty {
         String playerOneName = playerOne.getName();
         
         System.out.println(playerOne.toString());
+        
+        Crops crops = new Crops();
+        
+        crops.setYear(1);
+        
+        int cropsYear = crops.getYear();
+        
+        System.out.println(crops.toString());
+        
+        Location location = new Location();
+        
+        location.setRow(1);
+        
+        int locationRow = location.getRow();
+        
+        System.out.println(location.toString());
+        
+        Map map = new Map();
+        
+        map.setRowCount(1);
+        
+        int mapRowCount = map.rowCount();
+        
+        System.out.println(map.toString());
+        
+        Inventory inventory = new Inventory();
+        
+        inventory.setQuantity(1);
+        
+        int inventoryQuantity = inventory.quantity();
+        
+        System.out.println(inventory.toString());
     }
     
 }
