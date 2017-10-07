@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author rileyhein
+ * @author rileyhein//riley hein
  */
 public class Map implements Serializable {
     
