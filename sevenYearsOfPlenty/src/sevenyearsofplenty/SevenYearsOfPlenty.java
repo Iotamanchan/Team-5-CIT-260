@@ -2,6 +2,7 @@ package sevenyearsofplenty;
 
 
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
+import byui.cit260.sevenYearsOfPlenty.model.Location;
 import byui.cit260.sevenYearsOfPlenty.model.Player;
 
 /*
@@ -35,6 +36,14 @@ public class SevenYearsOfPlenty {
         int cropsYear = crops.getYear();
         
         System.out.println(crops.toString());
+        
+        Location location = new Location();
+        
+        location.setRow(1);
+        
+        int locationRow = location.getRow();
+        
+        System.out.println(location.toString());
     }
     
 }
