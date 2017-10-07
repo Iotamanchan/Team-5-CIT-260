@@ -46,7 +46,6 @@ public class SevenYearsOfPlenty {
         int locationRow = location.getRow();
         
         System.out.println(location.toString());
-<<<<<<< HEAD
         
         Map map = new Map();
         
@@ -63,8 +62,9 @@ public class SevenYearsOfPlenty {
         int inventoryQuantity = inventory.quantity();
         
         System.out.println(inventory.toString());
-=======
->>>>>>> ca6b04da7369569977b32ab37da4f7f4a9378ec0
+        
+        //riley edits
+
     }
     
 }
