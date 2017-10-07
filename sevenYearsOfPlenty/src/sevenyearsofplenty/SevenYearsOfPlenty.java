@@ -1,6 +1,7 @@
 package sevenyearsofplenty;
 
 
+import byui.cit260.sevenYearsOfPlenty.model.Crops;
 import byui.cit260.sevenYearsOfPlenty.model.Player;
 
 /*
@@ -26,6 +27,14 @@ public class SevenYearsOfPlenty {
         String playerOneName = playerOne.getName();
         
         System.out.println(playerOne.toString());
+        
+        Crops crops = new Crops();
+        
+        crops.setYear(1);
+        
+        int cropsYear = crops.getYear();
+        
+        System.out.println(crops.toString());
     }
     
 }
