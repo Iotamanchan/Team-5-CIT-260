@@ -59,7 +59,7 @@ public class SevenYearsOfPlenty {
         
         inventory.setQuantity(1);
         
-        int inventoryQuantity = inventory.quantity();
+//        int inventoryQuantity = inventory.quantity();
         
         System.out.println(inventory.toString());
         

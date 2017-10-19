@@ -70,11 +70,11 @@ public class Inventory implements Serializable {
     public String toString() {
         return "Inventory{" + "description=" + description + ", quantity=" + quantity + '}';
     }
-
+/*
     public int quantity() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+*/
     
     }
      
