@@ -7,7 +7,10 @@ package byui.cit260.sevenYearsOfPlenty.control;
 
 import java.util.Random;
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
-
+import java.io.IOException;
+import static java.lang.Math.random;
+import static jdk.nashorn.internal.codegen.OptimisticTypesPersistence.store;
+import java.util.Scanner;
 /**
  *
  * @author The Whopper
@@ -49,7 +52,36 @@ public class CropsControl {
 
         //return wheatInStore
         return wheat;}
-
+    
+     public static double calcHarvest(double acresPlanted, double store){
+        double harvest = (new Random().nextInt(5) + 1) * acresPlanted;
+        if (new Random().nextInt(2) > 0.5) {
+        double rats = harvest * (new Random().nextInt(6) + 85) / 100;
+        System.out.println("Rats ate " + rats + " grain.");
+        harvest = harvest - rats;
+        }
+    harvest = calcPharaohsShare(harvest);
+    store = store + harvest;
+    System.out.println("You have " + store + " in store." );
+    return store;
+} 
+    
+       public static double calcPharaohsShare(double harvest){
+        double pharaohShare = harvest * .08;
+    harvest = harvest - pharaohShare;
+        return harvest;
+    }  
+    
+  public static double calcFed(double store) {
+double fed = -1;
+Scanner scanner = new Scanner (System.in);
+do {
+     System.out.println("You have " + store + " grain stored. How much do you want to feed?");
+        fed = scanner.nextDouble();
+        } while ((fed < 0) || (fed > store));
+ scanner.close();
+ return fed;
+} 
 }
           
 
