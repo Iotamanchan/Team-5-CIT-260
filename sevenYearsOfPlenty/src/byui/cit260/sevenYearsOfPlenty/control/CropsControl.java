@@ -66,10 +66,24 @@ public class CropsControl {
     return store;
 } 
     
+     // calcPharaohsShare method
+    // Purpose: Calculate Pharaoh's share - subtract from wheat harvested
+    // Parameters: The amount of wheat harvested
+    // Pre-conditions: harvest >= 0
+    // Returns: amount of wheat harvested after removing pharaoh's share
        public static double calcPharaohsShare(double harvest){
-        double pharaohShare = harvest * .08;
-    harvest = harvest - pharaohShare;
-        return harvest;
+      //if harvest < 0, return -1
+      if (harvest < 0)
+         return -1;
+
+      //pharaohShare = harvest x .08
+      double pharaohShare = harvest * .08;
+
+      //harvest = harvest - pharaohShare
+      harvest = harvest - pharaohShare;
+
+      //return pharaohShare
+      return harvest;
     }  
     
   public static double calcFed(double store) {
