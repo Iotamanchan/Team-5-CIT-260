@@ -11,4 +11,5 @@ package byui.cit260.sevenYearsOfPlenty.control;
  */
 public class MapControl {
     
+    
 }

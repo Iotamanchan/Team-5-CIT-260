@@ -37,5 +37,84 @@ public class CropsControlTest {
         assertEquals(expResult, result);
 
     }
+
+    /**
+     * Test of calcLandCost method, of class CropsControl.
+     */
+    @Test
+    public void testCalcLandCost() {
+        System.out.println("calcLandCost");
+        int expResult = 0;
+        int result = CropsControl.calcLandCost();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buyLand method, of class CropsControl.
+     */
+    @Test
+    public void testBuyLand() {
+        System.out.println("buyLand");
+        Crops theCrops = null;
+        int toBuy = 0;
+        int landCost = 0;
+        CropsControl instance = new CropsControl();
+        int expResult = 0;
+        int result = instance.buyLand(theCrops, toBuy, landCost);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of calcHarvest method, of class CropsControl.
+     */
+    @Test
+    public void testCalcHarvest() {
+        System.out.println("calcHarvest");
+        double acresPlanted = 0.0;
+        double store = 0.0;
+        double expResult = 0.0;
+        double result = CropsControl.calcHarvest(acresPlanted, store);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of calcPharaohsShare method, of class CropsControl.
+     */
+    @Test
+     public void testCalcPharaohsShare() {
+        System.out.println("calcPharaohsShare");
+        double harvest = 1;
+        double expResult = 0.92;
+        double result = CropsControl.calcPharaohsShare(harvest);
+        assertEquals(expResult, result, 0.0);
+    harvest = 0;
+    expResult = 0;
+        result = CropsControl.calcPharaohsShare(harvest);
+        assertEquals(expResult, result, 0.0);
+    harvest = -4;
+    expResult = -1;
+        result = CropsControl.calcPharaohsShare(harvest);
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of calcFed method, of class CropsControl.
+     */
+    @Test
+    public void testCalcFed() {
+        System.out.println("calcFed");
+        double store = 0.0;
+        double expResult = 0.0;
+        double result = CropsControl.calcFed(store);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
