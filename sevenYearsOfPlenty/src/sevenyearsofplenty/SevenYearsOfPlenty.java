@@ -6,6 +6,7 @@ import byui.cit260.sevenYearsOfPlenty.model.Location;
 import byui.cit260.sevenYearsOfPlenty.model.Player;
 import byui.cit260.sevenYearsOfPlenty.model.Map;
 import byui.cit260.sevenYearsOfPlenty.model.Inventory;
+import byui.cit260.sevenYearsOfPlenty.view.StartProgramView;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -64,7 +65,8 @@ public class SevenYearsOfPlenty {
         System.out.println(inventory.toString());
         
         //riley edits
-
+        StartProgramView startProgramView = new StartProgramView();
+        StartProgramView.displayStartProgramView();
     }
     
 }

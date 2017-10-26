@@ -14,7 +14,9 @@ import java.io.Serializable;
 public class Game implements Serializable{
     
     private Player player;
-
+    
+    private static Crops theCrops = null;
+    
     public Game() {
     }
 
@@ -24,6 +26,21 @@ public class Game implements Serializable{
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+    //getCrops Method
+    //Gets a reference to the crop Object
+    //No parameters
+    //Returns a reference to teh crop Object
+    
+    public static Crops getCrop() {
+        return theCrops;
+    }
+    //setCrops Method
+    //Stores a reference to the crop Object
+    //A reference to a crop object, parameter
+    //returns: none
+    public static void setCrop(Crops _cropRef) {
+        theCrops = _cropRef;
     }
     
 }
