@@ -13,19 +13,19 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     
-    private Player player;
+    private static Player player;
     
     private static Crops theCrops = null;
-    
+    private static Game theGame = null;
     public Game() {
     }
 
-    public Player getPlayer() {
+    public static Player getPlayer() {
         return player;
     }
 
     public void setPlayer(Player player) {
-        this.player = player;
+        Game.player = player;
     }
     //getCrops Method
     //Gets a reference to the crop Object
@@ -41,6 +41,14 @@ public class Game implements Serializable{
     //returns: none
     public static void setCrop(Crops _cropRef) {
         theCrops = _cropRef;
+    }
+
+    public static Game getGame() {
+        return theGame;
+    }
+
+    public static void setGame(Game theGame) {
+        Game.theGame = theGame;
     }
     
 }

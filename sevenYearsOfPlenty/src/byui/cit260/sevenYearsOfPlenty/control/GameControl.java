@@ -37,4 +37,7 @@ public class GameControl {
         
         Game.setCrop(theCrops);
     }
+    public static void createNewGame(Player player) {
+        System.out.println("createNewGame(Player player) called");
+    }
 }

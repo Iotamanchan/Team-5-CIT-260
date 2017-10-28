@@ -28,7 +28,8 @@ public class StartProgramView {
     }
     
     public static void displayNextView(){
-        MainMenuView.displayMainMenu();
+        MainMenuView mainMenuView = new MainMenuView();//need to create MainMenuView class.
+        mainMenuView.displayMainMenuView();
         System.out.println("Goodbye! Thanks for playing!");
     }
 

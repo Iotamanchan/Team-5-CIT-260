@@ -33,7 +33,7 @@ public class CropsControl {
         return landPrice;
     }
     
-    public int buyLand(Crops theCrops, int toBuy, int landCost){ 
+    public static int buyLand(Crops theCrops, int toBuy, int landCost){ 
     if(toBuy < 0)
               return -1;
         
