@@ -16,7 +16,7 @@ import sevenyearsofplenty.SevenYearsOfPlenty;
  */
 class MainMenuView {
     private String menu;
-    private static final int MAX = 6;
+    private static final int MAX = 5;
     public MainMenuView(){
         this.menu = "MainMenuView items here";
     }
@@ -28,7 +28,7 @@ class MainMenuView {
             System.out.println(menu);
             option = getMenuOption();
             doAction(option);
-        }while(option != MAX);
+        }while(option < MAX);
 
         System.out.println("displayMainMenu called.");
     }
@@ -40,16 +40,16 @@ class MainMenuView {
            System.out.println("Please enter an option:");
            inputValue = keyboard.nextInt();
            
-           if(inputValue < 1 || inputValue >= MAX){
+           if(inputValue < 1 || inputValue > MAX){
                System.out.println("Invalid Option.");
            }
         }
-        while(inputValue < 1 || inputValue >= MAX);
+        while(inputValue < 1 || inputValue > MAX);
         return inputValue;
     }
 
     private int doAction(int option) {
-        option = getMenuOption();
+        
         
         switch (option){
             case 1:
@@ -66,6 +66,7 @@ class MainMenuView {
                 break;
             case 5:
                 this.quitGame();
+                break;
             default:
                 System.out.println("\nInvalid Selection. Please try again");
                 break;
