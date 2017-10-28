@@ -5,34 +5,32 @@
  */
 package byui.cit260.sevenYearsOfPlenty.view;
 
-import byui.cit260.sevenYearsOfPlenty.control.GameControl;
-import byui.cit260.sevenYearsOfPlenty.model.Game;
 import java.util.Scanner;
-import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
  *
  * @author Ruben
  */
-class MainMenuView {
+class HelpMenuView {
     private String menu;
-    private static final int MAX = 5;
-    
-    public MainMenuView(){
+    private static final int MAX = 6;
+   
+    public HelpMenuView(){
         this.menu = "\n"
                 + "\n******************************"
-                + "\n**********Main  Menu**********"
+                + "\n**********Help  Menu**********"
                 + "\n******************************"
-                + "\n1 - Start New Game"
-                + "\n2 - Get & Start a Save Game"
-                + "\n3 - Get Help on How to Play"
-                + "\n4 - Save Game"
-                + "\n5 - Quit"
+                + "\n1 - What are the Goals of the Game?"
+                + "\n2 - Who is Joseph of Egypt?"
+                + "\n3 - How do I view the Map?"
+                + "\n4 - How do I move to another location?"
+                + "\n5 - How to display provisions & tools?"
+                + "\n6 - Return to Main Menu"
                 + "\n******************************";
     }
-    public void displayMainMenuView() {
-        
-        int option;
+    
+    void displayHelpMenuView() {
+         int option;
         do
         {
             System.out.println(menu);
@@ -42,9 +40,9 @@ class MainMenuView {
 
         System.out.println("displayMainMenu called.");
     }
-    
-    private int getMenuOption(){
-        int inputValue = 0;
+
+    private int getMenuOption() {
+         int inputValue = 0;
         Scanner keyboard = new Scanner(System.in);
         do{
            System.out.println("Please enter an option:");
@@ -59,55 +57,31 @@ class MainMenuView {
     }
 
     private int doAction(int option) {
-        
-        
         switch (option){
             case 1:
-                this.startNewGame();
+                System.out.println("Goals placeholder");
                 break;
             case 2: 
-                this.startExistingGame();
+                System.out.println("Joseph placeholder");
                 break;
             case 3: 
-                this.displayHelpMenu();
+                System.out.println("View Map placeholder");
                 break;
             case 4:
-                this.saveGame();
+                System.out.println("Move placeholder");
                 break;
             case 5:
-                this.quitGame();
+                System.out.println("Display placeholder");
+                break;
+            case 6:
+                MainMenuView mainMenuView = new MainMenuView();//need to create MainMenuView class.
+                mainMenuView.displayMainMenuView();
                 break;
             default:
                 System.out.println("\nInvalid Selection. Please try again");
                 break;
         }
         return option;
-    }
-
-    private void startNewGame() {
-        GameControl.createNewGame(Game.getPlayer());
-        
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-    }
-
-    private void startExistingGame() {
-        System.out.println("startExistingGame called");
-    }
-
-    private void displayHelpMenu() {
-        HelpMenuView displayHelpMenu = new HelpMenuView();
-        displayHelpMenu.displayHelpMenuView();
-        
-        //System.out.println("displayHelpMenu called");
-    }
-
-    private void saveGame() {
-        System.out.println("saveGame called");
-    }
-
-    private void quitGame() {
-        System.out.println("quitGame called");
     }
     
 }
