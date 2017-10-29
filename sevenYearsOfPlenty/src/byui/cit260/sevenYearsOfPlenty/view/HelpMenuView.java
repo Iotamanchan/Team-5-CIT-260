@@ -74,8 +74,7 @@ class HelpMenuView {
                 System.out.println("Display placeholder");
                 break;
             case 6:
-                MainMenuView mainMenuView = new MainMenuView();//need to create MainMenuView class.
-                mainMenuView.displayMainMenuView();
+                System.out.println("Quitting! placeholder");
                 break;
             default:
                 System.out.println("\nInvalid Selection. Please try again");
