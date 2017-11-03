@@ -89,23 +89,9 @@ CropsControl.buyLand(theCrop, toBuy, price);
     } while(toSell < 0 || toSell * price > wheat);
 CropsControl.sellLand(theCrop, toSell, price);
 }
-    public String getInput() {
-    Scanner keyboard = new Scanner(System.in);
-    boolean valid = false;
-    String selection = null;
     
-    while (!valid) {
-        selection = keyboard.nextLine();
-        selection = selection.trim();
-        
-        if (selection.length() < 1) {
-            System.out.println("\n*** Invalid Selection *** Try again");
-            continue;
-        }
-        
-        break;
     }
     
-    return selection;
-} 
-}
+   
+
+
