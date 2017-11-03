@@ -45,4 +45,67 @@ public class CropsView {
     } while(toBuy < 0 || toBuy * price > wheat);
 CropsControl.buyLand(theCrop, toBuy, price);
 }
+    public String getInput() {
+    Scanner keyboard = new Scanner(System.in);
+    boolean valid = false;
+    String selection = null;
+    
+    while (!valid) {
+        selection = keyboard.nextLine();
+        selection = selection.trim();
+        
+        if (selection.length() < 1) {
+            System.out.println("\n*** Invalid Selection *** Try again");
+            continue;
+        }
+        
+        break;
+    }
+    
+    return selection;
+}
+    public static void sellLandView()
+{
+     int toSell = 0;
+     int price = CropsControl.calcLandCost();
+     System.out.format("Land is selling for %d bushels per acre.%n",price);
+
+     int wheat = theCrop.getWheatInStore(); 
+     int population = theCrop.getPopulation();
+    do
+    {
+       System.out.print("\nHow many acres of land do you wish to sell? ");      
+       toSell = keyboard.nextInt();
+       if(toSell < 0)
+       {
+             System.out.println("I am sorry master, I cannot do this.");
+             System.out.println("You cannot buy a negative amount of land.");
+        }
+        else if(toSell * price > wheat)
+        {
+              System.out.println("I am sorry master, I cannot do this.");
+              System.out.println("You do not have enough wheat to buy this much land.");
+         }
+    } while(toSell < 0 || toSell * price > wheat);
+CropsControl.sellLand(theCrop, toSell, price);
+}
+    public String getInput() {
+    Scanner keyboard = new Scanner(System.in);
+    boolean valid = false;
+    String selection = null;
+    
+    while (!valid) {
+        selection = keyboard.nextLine();
+        selection = selection.trim();
+        
+        if (selection.length() < 1) {
+            System.out.println("\n*** Invalid Selection *** Try again");
+            continue;
+        }
+        
+        break;
+    }
+    
+    return selection;
+} 
 }
