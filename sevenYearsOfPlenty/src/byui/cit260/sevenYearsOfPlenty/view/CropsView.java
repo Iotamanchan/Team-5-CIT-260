@@ -89,6 +89,18 @@ CropsControl.buyLand(theCrop, toBuy, price);
     } while(toSell < 0 || toSell * price > wheat);
 CropsControl.sellLand(theCrop, toSell, price);
 }
+    public static double fedView(){
+        double fed = -1;
+Scanner scanner = new Scanner (System.in);
+        double store = 0;
+do {
+      
+     System.out.println("You have " + store + " grain stored. How much do you want to feed?");
+        fed = scanner.nextDouble();
+        } while ((fed < 0) || (fed > store));
+ scanner.close();
+ return fed;
+    }
     
     }
     

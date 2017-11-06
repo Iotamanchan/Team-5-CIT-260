@@ -59,10 +59,15 @@ class HelpMenuView {
     private int doAction(int option) {
         switch (option){
             case 1:
-                System.out.println("Goals placeholder");
+                System.out.println("The game objective is to maintain a villiage in Egypt during"
+                        + "the seven years of plenty, in prepartion for the seven years of"
+                        + "famine from the bible.  You need to set aside enough food to both"
+                        + "feed your people and give to Pharaoh per year.");
                 break;
             case 2: 
-                System.out.println("Joseph placeholder");
+                System.out.println("Joseph is pharaoh over Egypt, son of Jacob sold into "
+                        + "bondage by his jealous brothers.  He rose from slavery to "
+                        + "pharaoh of Egypt.");
                 break;
             case 3: 
                 System.out.println("View Map placeholder");
@@ -77,7 +82,7 @@ class HelpMenuView {
                 System.out.println("Quitting! placeholder");
                 break;
             default:
-                System.out.println("\nInvalid Selection. Please try again");
+                System.out.println("Invalid Selection. Please try again");
                 break;
         }
         return option;
