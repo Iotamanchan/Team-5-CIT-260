@@ -11,71 +11,44 @@ import java.util.Scanner;
  *
  * @author rileyhein
  */
-public abstract class View implements viewInterface {
+public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    protected int max;
     
-    public View(){  
+    public View(){ 
+     
     }
-    
-    public View(String message){
+    public View(int MAX, String message){
+        this.max = MAX;
         this.displayMessage = message;
     }
     
-    @Override
-        public void displayMenu() {
-        System.out.println("displayMenu in GameMenuView called");
-        
-        int option;
-        do
-        {
-            System.out.println(menu);
-            option = getMenuOption();
+    @Override 
+    public void display(){
+    int option;
+       do
+       {
+            System.out.println(displayMessage);
+            option = getInput();
             doAction(option);
-        }while(option < MAX);
-        
-        System.out.println("displayMainMenu called.");
+        }while(option != max);
+
+        //System.out.println("displayMainMenu called.");
     }
-    @Override
-         private int getMenuOption(){
-        int inputValue = 0;
+    
+    public int getInput() {
+        int inputValue;
         Scanner keyboard = new Scanner(System.in);
         do{
-            System.out.println("Please enter an option:");
-            inputValue = keyboard.nextInt();
-            
-            if(inputValue < 1 || inputValue > MAX){
-                System.out.println("Invalid Option.");
-            }
+           System.out.println("Please enter an option:");
+           inputValue = keyboard.nextInt();
+           
+           if(inputValue < 1 || inputValue > max){
+               System.out.println("Invalid Option.");
+           }
         }
-        while(inputValue < 1 || inputValue > MAX);
+        while(inputValue < 1 || inputValue > max);
         return inputValue;
-        
-    }
-         
-    @Override
-        private int doAction(int option) {
-
-            switch(option){
-                case 1:
-                    this.viewMap();
-                    break;
-                case 2:
-                    this.viewList();
-                    break;
-                case 3:
-                    this.moveLocation();
-                    break;
-                case 4:
-                    this.manageCrops();
-                    break;
-                case 5:
-                    this.returnToMainMenu();
-                    break;
-                default:
-                    System.out.println("\nInvalid Selection. Please try again.");
-                    break;
-            }
-            return option;
     }
 }

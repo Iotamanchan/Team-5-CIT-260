@@ -14,12 +14,8 @@ import sevenyearsofplenty.SevenYearsOfPlenty;
  *
  * @author Ruben
  */
-class MainMenuView {
-    private String menu;
-    private static final int MAX = 5;
-    
-    public MainMenuView(){
-        this.menu = "\n"
+public class MainMenuView extends View{
+    private static final String menu = "\n"
                 + "\n******************************"
                 + "\n**********Main  Menu**********"
                 + "\n******************************"
@@ -29,8 +25,13 @@ class MainMenuView {
                 + "\n4 - Save Game"
                 + "\n5 - Quit"
                 + "\n******************************";
+    private static final int MAX = 5;
+    
+    public MainMenuView(){
+        super(MAX, menu);
     }
-    public void displayMainMenuView() {
+    
+ /*   public void displayMainMenuView() {
         
         int option;
         do
@@ -42,8 +43,8 @@ class MainMenuView {
 
         System.out.println("displayMainMenu called.");
     }
-    
-    private int getMenuOption(){
+    */
+    /*  private int getMenuOption(){
         int inputValue = 0;
         Scanner keyboard = new Scanner(System.in);
         do{
@@ -57,25 +58,26 @@ class MainMenuView {
         while(inputValue < 1 || inputValue > MAX);
         return inputValue;
     }
-
-    private int doAction(int option) {
+    */
+    @Override
+    public int doAction(int option) {
         
         
         switch (option){
             case 1:
-                this.startNewGame();
+                startNewGame();
                 break;
             case 2: 
-                this.startExistingGame();
+                startExistingGame();
                 break;
             case 3: 
-                this.displayHelpMenu();
+                displayHelpMenu();
                 break;
             case 4:
-                this.saveGame();
+                saveGame();
                 break;
             case 5:
-                this.quitGame();
+                quitGame();
                 break;
             default:
                 System.out.println("\nInvalid Selection. Please try again");
@@ -88,7 +90,7 @@ class MainMenuView {
         GameControl.createNewGame(Game.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void startExistingGame() {
@@ -97,7 +99,7 @@ class MainMenuView {
 
     private void displayHelpMenu() {
         HelpMenuView displayHelpMenu = new HelpMenuView();
-        displayHelpMenu.displayHelpMenuView();
+        displayHelpMenu.display();
         
         //System.out.println("displayHelpMenu called");
     }

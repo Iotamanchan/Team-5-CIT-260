@@ -12,12 +12,8 @@ import java.util.Scanner;
  *
  * @author Riley Hein
  */
-class GameMenuView {
-    private final String menu;
-    private static final int MAX = 5;
-
-    public GameMenuView(){
-        this.menu = "\n"
+class GameMenuView extends View{
+    private final String menu = "\n"
                 +"\n******************************"
                 +"\n**********Game  Menu**********"
                 + "\n******************************"
@@ -27,39 +23,15 @@ class GameMenuView {
                 +"\n4 - Manage the Crops"
                 +"\n5 - Back to Main Menu"
                 +"\n******************************";
+    private static final int MAX = 5;
+
+    public GameMenuView(){
+      
     }
     
-    public void displayMenu() {
-        System.out.println("displayMenu in GameMenuView called");
-        
-        int option;
-        do
-        {
-            System.out.println(menu);
-            option = getMenuOption();
-            doAction(option);
-        }while(option < MAX);
-        
-        System.out.println("displayMainMenu called.");
-    }
     
-    private int getMenuOption(){
-        int inputValue = 0;
-        Scanner keyboard = new Scanner(System.in);
-        do{
-            System.out.println("Please enter an option:");
-            inputValue = keyboard.nextInt();
-            
-            if(inputValue < 1 || inputValue > MAX){
-                System.out.println("Invalid Option.");
-            }
-        }
-        while(inputValue < 1 || inputValue > MAX);
-        return inputValue;
-        
-    }
-    
-    private int doAction(int option) {
+    @Override
+    public int doAction(int option) {
         
         switch(option){
             case 1:

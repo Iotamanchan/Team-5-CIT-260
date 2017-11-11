@@ -11,12 +11,8 @@ import java.util.Scanner;
  *
  * @author Ruben
  */
-class HelpMenuView {
-    private String menu;
-    private static final int MAX = 6;
-   
-    public HelpMenuView(){
-        this.menu = "\n"
+class HelpMenuView extends View{
+    private String menu = "\n"
                 + "\n******************************"
                 + "\n**********Help  Menu**********"
                 + "\n******************************"
@@ -27,8 +23,12 @@ class HelpMenuView {
                 + "\n5 - How to display provisions & tools?"
                 + "\n6 - Return to Main Menu"
                 + "\n******************************";
+    private static final int MAX = 6;
+   
+    public HelpMenuView(){
+        
     }
-    
+  /*  
     void displayHelpMenuView() {
          int option;
         do
@@ -40,23 +40,10 @@ class HelpMenuView {
 
         System.out.println("displayMainMenu called.");
     }
-
-    private int getMenuOption() {
-         int inputValue = 0;
-        Scanner keyboard = new Scanner(System.in);
-        do{
-           System.out.println("Please enter an option:");
-           inputValue = keyboard.nextInt();
-           
-           if(inputValue < 1 || inputValue > MAX){
-               System.out.println("Invalid Option.");
-           }
-        }
-        while(inputValue < 1 || inputValue > MAX);
-        return inputValue;
-    }
-
-    private int doAction(int option) {
+*/
+    
+    @Override
+    public int doAction(int option) {
         switch (option){
             case 1:
                 System.out.println("The game objective is to maintain a villiage in Egypt during"

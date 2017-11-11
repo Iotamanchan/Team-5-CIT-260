@@ -9,9 +9,9 @@ package byui.cit260.sevenYearsOfPlenty.view;
  *
  * @author rileyhein
  */
-public interface viewInterface {
-    public void displayMenu();
-    public int getMenu();
-    public int doAction();
+public interface ViewInterface {
+    public void display();
+    public int getInput();
+    public int doAction(int option);
     
 }
