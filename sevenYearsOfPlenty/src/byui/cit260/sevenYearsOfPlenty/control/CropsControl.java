@@ -96,6 +96,40 @@ do {
  scanner.close();
  return fed;
 } 
+  
+  
+//Purpose:How many people starved in a year
+//Parameter: current pop, fed
+//Pre-condition: must have more harvest than population
+//Returns: number of people who died
+public static int calcNumberWhoDied(int currentPopulation, int fed){
+    
+//currentPopulation - fed = numberWhoDied
+
+int numberWhoDied = currentPopulation - fed;
+
+//return number who died
+    return numberWhoDied;
+}
+    
+  
+//Purpose: calculate the number of people in the population who were born
+//Parameter: current population, year
+//Pre-conditions: currentPopulation > 1
+//Returns: Number of new people born in a year
+public static int calcNewPeople(Crops theCrops, int currentPopulation){
+      int newPeople;
+//if currentPopulation is < 1, return -1
+    if(currentPopulation < 1) {
+        return -1;
+        } else {
+
+//calculate new people  
+          newPeople = random.nextInt(10) + 1;
+    }
+    
+    return newPeople;
+  }
 
     public static void sellLand(Crops theCrop, int toSell, int price) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
