@@ -66,7 +66,7 @@ public class CropsControl {
     return store;
 } 
     
-     // calcPharaohsShare method
+    // calcPharaohsShare method
     // Purpose: Calculate Pharaoh's share - subtract from wheat harvested
     // Parameters: The amount of wheat harvested
     // Pre-conditions: harvest >= 0
@@ -97,19 +97,21 @@ do {
  return fed;
 } 
   
-  
+
 //Purpose:How many people starved in a year
 //Parameter: current pop, fed
 //Pre-condition: must have more harvest than population
 //Returns: number of people who died
-public static int calcNumberWhoDied(int currentPopulation, int fed){
-    
+public static int calcNumberWhoDied(Crops theCrops, int fed){
+    theCrops.getFed(); 
+    int population = theCrops.getPopulation();
 //currentPopulation - fed = numberWhoDied
 
-int numberWhoDied = currentPopulation - fed;
+        int numberWhoDied = population - fed;
 
+        theCrops.setPopulation(population - numberWhoDied); 
 //return number who died
-    return numberWhoDied;
+    return theCrops.getPopulation();
 }
     
   
@@ -117,19 +119,42 @@ int numberWhoDied = currentPopulation - fed;
 //Parameter: current population, year
 //Pre-conditions: currentPopulation > 1
 //Returns: Number of new people born in a year
-public static int calcNewPeople(Crops theCrops, int currentPopulation){
-      int newPeople;
+public static int calcNewPeople(Crops theCrops){
+    int population = theCrops.getPopulation();
 //if currentPopulation is < 1, return -1
-    if(currentPopulation < 1) {
+    if(population < 1) {
         return -1;
         } else {
 
 //calculate new people  
-          newPeople = random.nextInt(10) + 1;
+        int newPeople = random.nextInt(10) + 1;
+        theCrops.setPopulation(newPeople + population);
+        
+//return the updated population
+    return theCrops.getPopulation();
     }
-    
-    return newPeople;
   }
+
+
+//Purpose: Calculate wheatInStore
+//Parameter: Harvest, fed, pharaoh's share
+//Pre-Conditions: harvest >= fed && pharaoh's share
+//Returns: How much wheat was stored that year
+public static int calcWheatInStore(Crops theCrops, int harvest, int fed, int pharaohsShare){
+        int wheatInStore = theCrops.getWheatInStore();
+//if harvest < fed || harvest - fed - pharoahsShare <= 0 return -1
+    if(harvest < fed){
+        return -1;
+    }else if(harvest - fed - pharaohsShare <= 0){
+        return -1;
+    }else if(harvest - fed - pharaohsShare >= 1){
+        
+ //calculate the new amount of wheat in store
+        theCrops.setWheatInStore (harvest - fed - pharaohsShare + wheatInStore);
+    }
+    return theCrops.getWheatInStore();
+}
+
 
     public static void sellLand(Crops theCrop, int toSell, int price) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
