@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Ruben
  */
 class HelpMenuView extends View{
-    private String menu = "\n"
+    private static final String menu = "\n"
                 + "\n******************************"
                 + "\n**********Help  Menu**********"
                 + "\n******************************"
@@ -26,7 +26,7 @@ class HelpMenuView extends View{
     private static final int MAX = 6;
    
     public HelpMenuView(){
-        
+        super(MAX, menu);
     }
   /*  
     void displayHelpMenuView() {

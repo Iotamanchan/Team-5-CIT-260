@@ -98,7 +98,7 @@ do {
      System.out.println("You have " + store + " grain stored. How much do you want to feed?");
         fed = scanner.nextDouble();
         } while ((fed < 0) || (fed > store));
- scanner.close();
+// scanner.close();
  return fed;
     }
     

@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Riley Hein
  */
 class GameMenuView extends View{
-    private final String menu = "\n"
+    private static final String menu = "\n"
                 +"\n******************************"
                 +"\n**********Game  Menu**********"
                 + "\n******************************"
@@ -26,7 +26,7 @@ class GameMenuView extends View{
     private static final int MAX = 5;
 
     public GameMenuView(){
-      
+      super(MAX, menu);
     }
     
     
@@ -71,7 +71,11 @@ class GameMenuView extends View{
     }
     
     private void manageCrops(){
-        System.out.println("manageCrops");
+        //System.out.println("manageCrops");
+        //CropsView cropsView = new CropsView();
+        CropsView.buyLandView();
+        //CropsView.sellLandView();
+        CropsView.fedView();
     }
     
     private void returnToMainMenu(){
