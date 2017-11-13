@@ -156,8 +156,22 @@ public static int calcWheatInStore(Crops theCrops, int harvest, int fed, int pha
 }
 
 
-    public static void sellLand(Crops theCrop, int toSell, int price) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static int sellLand(Crops theCrops, int toSell, int price) {
+        if(toSell < 0)
+              return -1;
+        
+        int wheat = theCrops.getWheatInStore();
+        int landCost = 0;
+        if(wheat < toSell * landCost)
+            return -1;
+        int acres = theCrops.getAcres();
+        acres += toSell;
+        theCrops.setAcres(acres);
+
+                
+        wheat += (toSell * landCost);
+        theCrops.setWheatInStore(wheat);
+        return wheat;
     }
 }
           
