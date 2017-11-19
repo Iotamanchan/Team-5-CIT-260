@@ -5,6 +5,8 @@
  */
 package byui.cit260.sevenYearsOfPlenty.control;
 
+import static java.util.Collections.list;
+
 /**
  *
  * @author The Whopper
@@ -20,14 +22,32 @@ public class MapControl {
             {16, 17, 18, 19, 20},
             {21, 22, 23, 24, 25}
         };
-        int sum = 0; 
-       // for(int i=0, i < 5, i++) {
-         //   for(int j=0, j < 5, j++){
-           //     sum += map[i][j];
+        //private final int[] minValue;
+    //public int findMin() {
+        //int minValue = map[0][0];
+        //for(int i = 0, i < 5, i++) {
+            //for(int j = 0, j < 5, j++) {
+                //if (map[i][j] < minValue)
+                    //minValue = map[i][j];
             }
         }
+        //return minValue;
     //}
-//} 
+        
+
+        //map() {
+            //this.minValue = map[0];
+       // }
+
+        //private class length {
+
+            //public length() {
+            //}
+        //}
+    //}
+//}
+
+ 
      
     
 
