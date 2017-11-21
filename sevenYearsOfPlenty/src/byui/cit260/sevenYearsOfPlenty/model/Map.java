@@ -13,13 +13,18 @@ import java.io.Serializable;
  */
 public class Map implements Serializable {
     
-    private int rowCount ;
-    private int colCount;
-    
+    private int rowCount = 5;
+    private int colCount = 5;
+    private Location[][] locations;
     
     public Map(){
-    }
         
+    }
+    public Map(int row, int col){
+        row = rowCount;
+        col = colCount;
+   
+    }
     public int getRowCount() {
         return rowCount;
     }
@@ -74,5 +79,8 @@ public class Map implements Serializable {
         return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + '}';
     }
 
-    
+    public Location[][] getLocations() {
+        return locations;
+    }
+   
     }

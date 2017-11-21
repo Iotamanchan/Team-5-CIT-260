@@ -7,6 +7,7 @@ package byui.cit260.sevenYearsOfPlenty.control;
 
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
 import byui.cit260.sevenYearsOfPlenty.model.Game;
+import byui.cit260.sevenYearsOfPlenty.model.Map;
 import byui.cit260.sevenYearsOfPlenty.model.Player;
 
 /**
@@ -39,5 +40,16 @@ public class GameControl {
     }
     public static void createNewGame(Player player) {
         System.out.println("createNewGame(Player player) called");
+        Game game = new Game();
+        Game.setGame(game);
+        createCrops();
+        
+        Map map = new Map(5,5);
+        
+        //map.setColCount(5);
+        //map.setRowCount(5);
+        System.out.println("createNewGame(Player player) called");
+        
     }
+
 }

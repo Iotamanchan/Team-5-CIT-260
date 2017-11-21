@@ -6,6 +6,7 @@
 package byui.cit260.sevenYearsOfPlenty.view;
 
 import byui.cit260.sevenYearsOfPlenty.control.MapControl;
+import byui.cit260.sevenYearsOfPlenty.model.Map;
 import java.util.Scanner;
 
 /**
@@ -57,7 +58,11 @@ class GameMenuView extends View{
     }
     
     private void viewMap(){
-        System.out.println("viwMap");
+        //System.out.println("viwMap");
+        Map map = new Map();
+        System.out.println(map.getRowCount());
+        System.out.println(map.getColCount());
+        
     }
     
     private void viewList(){
