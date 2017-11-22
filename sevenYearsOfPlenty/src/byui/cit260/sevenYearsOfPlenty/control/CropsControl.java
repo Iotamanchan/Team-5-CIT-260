@@ -11,6 +11,7 @@ import java.io.IOException;
 import static java.lang.Math.random;
 import static jdk.nashorn.internal.codegen.OptimisticTypesPersistence.store;
 import java.util.Scanner;
+import byui.cit260.seveYearsOfPlenty.exceptions.CropsControlException;
 /**
  *
  * @author The Whopper
@@ -37,7 +38,7 @@ public class CropsControl {
     if(toBuy < 0)
               return -1;
         
-         //if (acresToBuy x landPrice) > wheatInStore, return -1
+    //if (acresToBuy x landPrice) > wheatInStore, return -1
         int wheat = theCrops.getWheatInStore();
         if(wheat < toBuy * landCost)
             return -1;
@@ -46,11 +47,11 @@ public class CropsControl {
         acres += toBuy;
         theCrops.setAcres(acres);
 
-                //wheatInStore = wheatInStore – (acresToBuy x landPrice)
+    //wheatInStore = wheatInStore – (acresToBuy x landPrice)
         wheat -= (toBuy * landCost);
         theCrops.setWheatInStore(wheat);
 
-        //return wheatInStore
+//return wheatInStore
         return wheat;}
     
      public static double calcHarvest(double acresPlanted, double store){
@@ -64,7 +65,7 @@ public class CropsControl {
     store = store + harvest;
     System.out.println("You have " + store + " in store." );
     return store;
-} 
+}
     
     // calcPharaohsShare method
     // Purpose: Calculate Pharaoh's share - subtract from wheat harvested
@@ -119,11 +120,14 @@ public static int calcNumberWhoDied(Crops theCrops, int fed){
 //Parameter: current population, year
 //Pre-conditions: currentPopulation > 1
 //Returns: Number of new people born in a year
-public static int calcNewPeople(Crops theCrops){
+public static int calcNewPeople(Crops theCrops) throws CropsControlException{
+        throw new CropsControlException{
     int population = theCrops.getPopulation();
 //if currentPopulation is < 1, return -1
     if(population < 1) {
-        return -1;
+        
+        throw new CropsControlException("Your population is depleted");
+        
         } else {
 
 //calculate new people  
@@ -133,6 +137,7 @@ public static int calcNewPeople(Crops theCrops){
 //return the updated population
     return theCrops.getPopulation();
     }
+    }   
   }
 
 
