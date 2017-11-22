@@ -34,25 +34,28 @@ public class CropsControl {
         return landPrice;
     }
     
-    public static int buyLand(Crops theCrops, int toBuy, int landCost){ 
+    public static int buyLand(Crops theCrops, int toBuy, int landCost) throws CropsControlException{ 
+    //if toBuy < 0, throw exception
     if(toBuy < 0)
-              return -1;
-        
-    //if (acresToBuy x landPrice) > wheatInStore, return -1
-        int wheat = theCrops.getWheatInStore();
-        if(wheat < toBuy * landCost)
-            return -1;
-    //acresOwned = acresOwned + acresToBuy
-        int acres = theCrops.getAcres();
-        acres += toBuy;
-        theCrops.setAcres(acres);
+        throw new CropsControlException("Cannot buy negative land");
+    int wheat = theCrops.getWheatInStore();
+    
+    //if (acresToBuy x landPrice) > wheatInStore, throw exception
+    if(wheat < toBuy * landCost)
+        throw new CropsControlException("Not enough wheat to buy desired land");
+  
+  //acresOwned = acresOwned + acresToBuy
+    int acres = theCrops.getAcres();
+    acres += toBuy;
+    theCrops.setAcres(acres);
 
     //wheatInStore = wheatInStore – (acresToBuy x landPrice)
-        wheat -= (toBuy * landCost);
-        theCrops.setWheatInStore(wheat);
+    wheat -= (toBuy * landCost);
+    theCrops.setWheatInStore(wheat);
 
-//return wheatInStore
-        return wheat;}
+    //return wheatInStore
+    return wheat;
+}
     
      public static double calcHarvest(double acresPlanted, double store){
         double harvest = (new Random().nextInt(5) + 1) * acresPlanted;
@@ -121,24 +124,18 @@ public static int calcNumberWhoDied(Crops theCrops, int fed){
 //Pre-conditions: currentPopulation > 1
 //Returns: Number of new people born in a year
 public static int calcNewPeople(Crops theCrops) throws CropsControlException{
-        throw new CropsControlException{
     int population = theCrops.getPopulation();
-//if currentPopulation is < 1, return -1
+    //if currentPopulation is < 1, return -1
     if(population < 1) {
-        
         throw new CropsControlException("Your population is depleted");
-        
-        } else {
-
-//calculate new people  
+    } else {
+        //calculate new people  
         int newPeople = random.nextInt(10) + 1;
         theCrops.setPopulation(newPeople + population);
-        
-//return the updated population
-    return theCrops.getPopulation();
-    }
+        //return the updated population
+        return theCrops.getPopulation();
     }   
-  }
+}
 
 
 //Purpose: Calculate wheatInStore
