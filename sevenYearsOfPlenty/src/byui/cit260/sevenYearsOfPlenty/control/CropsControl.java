@@ -57,7 +57,7 @@ public class CropsControl {
     return wheat;
 }
     
-     public static double calcHarvest(double acresPlanted, double store){
+     public static double calcHarvest(double acresPlanted, double store) throws CropsControlException{
         double harvest = (new Random().nextInt(5) + 1) * acresPlanted;
         if (new Random().nextInt(2) > 0.5) {
         double rats = harvest * (new Random().nextInt(6) + 85) / 100;
@@ -75,30 +75,34 @@ public class CropsControl {
     // Parameters: The amount of wheat harvested
     // Pre-conditions: harvest >= 0
     // Returns: amount of wheat harvested after removing pharaoh's share
-       public static double calcPharaohsShare(double harvest){
-      //if harvest < 0, return -1
-      if (harvest < 0)
-         return -1;
+   public static double calcPharaohsShare(double harvest) throws CropsControlException{
+    //if harvest < 0, throw an exception7
+    if (harvest < 0)
+        throw new CropsControlException("Harvest cannot be negative.");
 
-      //pharaohShare = harvest x .08
-      double pharaohShare = harvest * .08;
+    //pharaohShare = harvest x .08
+    double pharaohShare = harvest * .08;
 
-      //harvest = harvest - pharaohShare
-      harvest = harvest - pharaohShare;
+    //harvest = harvest - pharaohShare
+    harvest = harvest - pharaohShare;
 
-      //return pharaohShare
-      return harvest;
-    }  
+    //return pharaohShare
+    return harvest;
+}
     
-  public static double calcFed(double store) {
-double fed = -1;
-Scanner scanner = new Scanner (System.in);
-do {
-     System.out.println("You have " + store + " grain stored. How much do you want to feed?");
-        fed = scanner.nextDouble();
-        } while ((fed < 0) || (fed > store));
- scanner.close();
- return fed;
+  public static double calcFed(double store) throws CropsControlException{
+    double fed = -1;
+    Scanner scanner = new Scanner (System.in);
+    System.out.println("You have " + store + " grain stored. How much do you want to feed?");
+    fed = scanner.nextDouble();
+    
+    if (fed < 0) 
+        throw new CropsControlException("Cannot feed negative people.");
+    if (fed > store)
+        throw new CropsControlException("Cannot feed more than is stored.");
+        
+    scanner.close();
+    return fed;
 } 
   
 
