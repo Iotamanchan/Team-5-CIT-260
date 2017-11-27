@@ -44,7 +44,7 @@ public class GameControl {
         Game.setGame(game);
         createCrops();
         
-        Map map = new Map(5,5);
+        Map theMap = new Map(5,5);
         
         //map.setColCount(5);
         //map.setRowCount(5);

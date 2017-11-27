@@ -35,26 +35,26 @@ public class CropsControl {
     }
     
     public static int buyLand(Crops theCrops, int toBuy, int landCost) throws CropsControlException{ 
-    //if toBuy < 0, throw exception
-    if(toBuy < 0)
-        throw new CropsControlException("Cannot buy negative land");
-    int wheat = theCrops.getWheatInStore();
-    
-    //if (acresToBuy x landPrice) > wheatInStore, throw exception
-    if(wheat < toBuy * landCost)
-        throw new CropsControlException("Not enough wheat to buy desired land");
-  
-  //acresOwned = acresOwned + acresToBuy
-    int acres = theCrops.getAcres();
-    acres += toBuy;
-    theCrops.setAcres(acres);
+        //if toBuy < 0, throw exception
+        if(toBuy < 0)
+            throw new CropsControlException("Cannot buy negative land");
+        int wheat = theCrops.getWheatInStore();
 
-    //wheatInStore = wheatInStore – (acresToBuy x landPrice)
-    wheat -= (toBuy * landCost);
-    theCrops.setWheatInStore(wheat);
+        //if (acresToBuy x landPrice) > wheatInStore, throw exception
+        if(wheat < toBuy * landCost)
+            throw new CropsControlException("Not enough wheat to buy desired land");
 
-    //return wheatInStore
-    return wheat;
+      //acresOwned = acresOwned + acresToBuy
+        int acres = theCrops.getAcres();
+        acres += toBuy;
+        theCrops.setAcres(acres);
+
+        //wheatInStore = wheatInStore – (acresToBuy x landPrice)
+        wheat -= (toBuy * landCost);
+        theCrops.setWheatInStore(wheat);
+
+        //return wheatInStore
+        return wheat;
 }
     
      public static double calcHarvest(double acresPlanted, double store) throws CropsControlException{
@@ -64,10 +64,10 @@ public class CropsControl {
         System.out.println("Rats ate " + rats + " grain.");
         harvest = harvest - rats;
         }
-    harvest = calcPharaohsShare(harvest);
-    store = store + harvest;
-    System.out.println("You have " + store + " in store." );
-    return store;
+        harvest = calcPharaohsShare(harvest);
+        store = store + harvest;
+        System.out.println("You have " + store + " in store." );
+        return store;
 }
     
     // calcPharaohsShare method
@@ -162,14 +162,14 @@ public static int calcWheatInStore(Crops theCrops, int harvest, int fed, int pha
 }
 
 
-    public static int sellLand(Crops theCrops, int toSell, int price) {
+    public static int sellLand(Crops theCrops, int toSell, int price) throws CropsControlException {
         if(toSell < 0)
-              return -1;
+              throw new CropsControlException("Cannot sell negative land");
         
         int wheat = theCrops.getWheatInStore();
         int landCost = 0;
         if(wheat < toSell * landCost)
-            return -1;
+                throw new CropsControlException("Not enough wheat");
         int acres = theCrops.getAcres();
         acres += toSell;
         theCrops.setAcres(acres);

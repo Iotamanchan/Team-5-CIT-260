@@ -5,9 +5,12 @@
  */
 package byui.cit260.sevenYearsOfPlenty.view;
 
+import byui.cit260.seveYearsOfPlenty.exceptions.CropsControlException;
 import byui.cit260.sevenYearsOfPlenty.control.MapControl;
 import byui.cit260.sevenYearsOfPlenty.model.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,7 +48,13 @@ class GameMenuView extends View{
                 this.moveLocation();
                 break;
             case 4:
+        {
+            try {
                 this.manageCrops();
+            } catch (CropsControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 5:
                 this.returnToMainMenu();
@@ -75,12 +84,12 @@ class GameMenuView extends View{
         
     }
     
-    private void manageCrops(){
+    private void manageCrops() throws CropsControlException{
         //System.out.println("manageCrops");
         //CropsView cropsView = new CropsView();
         CropsView.buyLandView();
-        //CropsView.sellLandView();
-        CropsView.fedView();
+        CropsView.sellLandView();
+        //CropsView.fedView();
     }
     
     private void returnToMainMenu(){

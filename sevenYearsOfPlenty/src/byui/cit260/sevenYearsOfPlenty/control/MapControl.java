@@ -5,6 +5,7 @@
  */
 package byui.cit260.sevenYearsOfPlenty.control;
 
+import byui.cit260.sevenYearsOfPlenty.model.Map;
 import static java.util.Collections.list;
 
 /**
@@ -12,7 +13,12 @@ import static java.util.Collections.list;
  * @author The Whopper
  */
 public class MapControl {
-
+    
+    public static Map createMap(){
+        Map theMap = new Map(5,5);
+        
+        return theMap;
+    }
 
     class map {
         int[][] map = {

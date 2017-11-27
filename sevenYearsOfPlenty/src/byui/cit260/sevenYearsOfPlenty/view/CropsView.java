@@ -25,6 +25,7 @@ public class CropsView {
     
     public static void buyLandView()
 {
+    boolean fail;
      int toBuy = 0;
      int price = CropsControl.calcLandCost();
      System.out.format("Land is selling for %d bushels per acre.%n",price);
@@ -33,24 +34,33 @@ public class CropsView {
      int population = theCrop.getPopulation();
     do
     {
+        fail = false;
        System.out.print("\nHow many acres of land do you wish to buy? ");      
        toBuy = keyboard.nextInt();
-       if(toBuy < 0)
-       {
-             System.out.println("I am sorry master, I cannot do this.");
-             System.out.println("You cannot buy a negative amount of land.");
-        }
-        else if(toBuy * price > wheat)
-        {
-              System.out.println("I am sorry master, I cannot do this.");
-              System.out.println("You do not have enough wheat to buy this much land.");
-         }
-    } while(toBuy < 0 || toBuy * price > wheat);
-        try {
-            CropsControl.buyLand(theCrop, toBuy, price);
-        } catch (CropsControlException ex) {
-            Logger.getLogger(CropsView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       try{
+           CropsControl.buyLand(theCrop, toBuy, price);
+       }
+       catch(CropsControlException e){
+           System.out.println("I am sorry master, I cannot do this.");
+           System.out.println(e.getMessage());
+           fail = true;
+       }
+       //if(toBuy < 0)
+       //{
+       //      System.out.println("I am sorry master, I cannot do this.");
+       //      //System.out.println("You cannot buy a negative amount of land.");
+       // }
+       // else if(toBuy * price > wheat)
+       // {
+       //       System.out.println("I am sorry master, I cannot do this.");
+       //       //System.out.println("You do not have enough wheat to buy this much land.");
+      //   }
+    } while(false);
+        //try {
+       //     CropsControl.buyLand(theCrop, toBuy, price);
+       // } catch (CropsControlException ex) {
+        //    Logger.getLogger(CropsView.class.getName()).log(Level.SEVERE, null, ex);
+       // }
 }
     public String getInput() {
     Scanner keyboard = new Scanner(System.in);
@@ -71,33 +81,47 @@ public class CropsView {
     
     return selection;
 }
-    public static void sellLandView()
-{
+    public static void sellLandView() throws CropsControlException
+    {
+        boolean fail;
      int toSell = 0;
      int price = CropsControl.calcLandCost();
      System.out.format("Land is selling for %d bushels per acre.%n",price);
 
-     int wheat = theCrop.getWheatInStore(); 
-     int population = theCrop.getPopulation();
+     //int wheat = theCrop.getWheatInStore(); 
+     //int population = theCrop.getPopulation();
     do
     {
+        fail = false;
        System.out.print("\nHow many acres of land do you wish to sell? ");      
        toSell = keyboard.nextInt();
-       if(toSell < 0)
-       {
-             System.out.println("I am sorry master, I cannot do this.");
-             System.out.println("You cannot buy a negative amount of land.");
-        }
-        else if(toSell * price > wheat)
-        {
-              System.out.println("I am sorry master, I cannot do this.");
-              System.out.println("You do not have enough wheat to buy this much land.");
-         }
-    } while(toSell < 0 || toSell * price > wheat);
+       try{
+           CropsControl.sellLand(theCrop, toSell, price);
+       }
+       catch(CropsControlException e){
+           System.out.println("Sorry, this cannot be done.");
+           System.out.println(e.getMessage());
+           fail = true;
+       }
+      // if(toSell < 0)
+      // {
+      //       System.out.println("I am sorry master, I cannot do this.");
+      //       System.out.println("You cannot buy a negative amount of land.");
+      //  }
+     //   else if(toSell * price > wheat)
+     //   {
+      //        System.out.println("I am sorry master, I cannot do this.");
+     //         System.out.println("You do not have enough wheat to buy this much land.");
+      //   }
+      //NOTE: All of this code was redundant and I removed it. The method in the
+      //CropsControl already managed all of this.
+      
+    } while(fail);
     
-CropsControl.sellLand(theCrop, toSell, price);
+
+
 }
-    public static double fedView(){
+    /*public static double fedView(){
         double fed = -1;
 Scanner scanner = new Scanner (System.in);
         double store = 0;
@@ -108,7 +132,7 @@ do {
         } while ((fed < 0) || (fed > store));
 // scanner.close();
  return fed;
-    }
+    }*/
     
     }
     
