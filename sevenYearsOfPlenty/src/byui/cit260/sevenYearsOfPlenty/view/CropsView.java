@@ -5,10 +5,13 @@
  */
 package byui.cit260.sevenYearsOfPlenty.view;
 
+import byui.cit260.seveYearsOfPlenty.exceptions.CropsControlException;
 import byui.cit260.sevenYearsOfPlenty.control.CropsControl;
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
 import byui.cit260.sevenYearsOfPlenty.model.Game;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,7 +46,11 @@ public class CropsView {
               System.out.println("You do not have enough wheat to buy this much land.");
          }
     } while(toBuy < 0 || toBuy * price > wheat);
-CropsControl.buyLand(theCrop, toBuy, price);
+        try {
+            CropsControl.buyLand(theCrop, toBuy, price);
+        } catch (CropsControlException ex) {
+            Logger.getLogger(CropsView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
     public String getInput() {
     Scanner keyboard = new Scanner(System.in);
@@ -87,6 +94,7 @@ CropsControl.buyLand(theCrop, toBuy, price);
               System.out.println("You do not have enough wheat to buy this much land.");
          }
     } while(toSell < 0 || toSell * price > wheat);
+    
 CropsControl.sellLand(theCrop, toSell, price);
 }
     public static double fedView(){
