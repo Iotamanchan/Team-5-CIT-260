@@ -81,6 +81,40 @@ public class CropsView {
     
     return selection;
 }
+    
+    
+        public static void calcHarvest(){
+            
+        }
+        
+        public static void calcFed(){
+            
+        }
+    
+        public static void calcPharaohsShare(){
+            
+        }
+    
+
+        
+       public static void calcWheatInStore()
+           {
+
+               try{
+                   CropsControl.calcWheatInStore(theCrop, 0, 0, 0);//fill in these values
+               }
+               catch(CropsControlException e){
+                   System.out.println("Sorry not enough wheat.");
+                   System.out.println(e.getMessage());
+               }
+               
+
+       }       
+
+
+       
+       
+       
     public static void sellLandView() throws CropsControlException
     {
         boolean fail;
