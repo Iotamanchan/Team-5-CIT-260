@@ -9,6 +9,7 @@ import byui.cit260.seveYearsOfPlenty.exceptions.CropsControlException;
 import byui.cit260.sevenYearsOfPlenty.control.MapControl;
 import byui.cit260.sevenYearsOfPlenty.model.Map;
 import java.util.Scanner;
+import byui.cit260.sevenYearsOfPlenty.control.CropsControl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,9 +26,10 @@ class GameMenuView extends View{
                 +"\n2 - View a List"
                 +"\n3 - Move to a New Location"
                 +"\n4 - Manage the Crops"
-                +"\n5 - Back to Main Menu"
+                +"\n5 - End the Turn"
+                +"\n6 - Back to Main Menu"
                 +"\n******************************";
-    private static final int MAX = 5;
+    private static final int MAX = 6;
 
     public GameMenuView(){
       super(MAX, menu);
@@ -57,6 +59,9 @@ class GameMenuView extends View{
         }
                 break;
             case 5:
+                this.endTheTurn();
+                break;
+            case 6:
                 this.returnToMainMenu();
                 break;
             default:
@@ -91,6 +96,12 @@ class GameMenuView extends View{
         CropsView.sellLandView();
         //CropsView.fedView();
     }
+    
+    private void endTheTurn(){
+        //CropsControl.endTheTurn();
+        //create function for ending the turn in crops control
+    }
+    
     
     private void returnToMainMenu(){
         System.out.println("returnToMainMenu");
