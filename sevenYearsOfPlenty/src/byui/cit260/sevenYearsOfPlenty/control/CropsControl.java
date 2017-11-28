@@ -146,13 +146,15 @@ public static int calcNewPeople(Crops theCrops) throws CropsControlException{
 //Parameter: Harvest, fed, pharaoh's share
 //Pre-Conditions: harvest >= fed && pharaoh's share
 //Returns: How much wheat was stored that year
-public static int calcWheatInStore(Crops theCrops, int harvest, int fed, int pharaohsShare){
+public static int calcWheatInStore(Crops theCrops, int harvest, int fed, int pharaohsShare) throws CropsControlException{
         int wheatInStore = theCrops.getWheatInStore();
 //if harvest < fed || harvest - fed - pharoahsShare <= 0 return -1
     if(harvest < fed){
-        return -1;
+        throw new CropsControlException("You don't have enough wheat to feed your people.");
+        //return -1;
     }else if(harvest - fed - pharaohsShare <= 0){
-        return -1;
+        throw new CropsControlException("Not enough wheat to store.");
+        //return -1;
     }else if(harvest - fed - pharaohsShare >= 1){
         
  //calculate the new amount of wheat in store
@@ -179,6 +181,11 @@ public static int calcWheatInStore(Crops theCrops, int harvest, int fed, int pha
         theCrops.setWheatInStore(wheat);
         return wheat;
     }
+    
+    //public static endTheTurn(){
+        
+    //}
+
 }
           
 
