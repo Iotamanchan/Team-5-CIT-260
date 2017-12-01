@@ -6,7 +6,9 @@
 package byui.cit260.sevenYearsOfPlenty.view;
 
 import byui.cit260.sevenYearsOfPlenty.control.GameControl;
+import java.io.*;
 import java.util.Scanner;
+import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
  *
@@ -14,13 +16,16 @@ import java.util.Scanner;
  */
 public class StartProgramView {
 
-    public static void displayStartProgramView() {
+    protected final static BufferedReader keyboard = SevenYearsOfPlenty.getInFile();
+    protected final static PrintWriter console = SevenYearsOfPlenty.getOutFile();
+    
+    public static void displayStartProgramView() throws IOException {
         String playerName = getPlayerName();
         GameControl.createPlayer(playerName);
         
         GameControl.createCrops();
         
-        System.out.println("\n\n\n"
+        console.println("\n\n\n"
                 + playerName + ", you have been appointed overseer for your"
                 + "\nvillage. Tread carefully. If your people are not fed well"
                 + "\nyou may lose your head.");
@@ -30,18 +35,18 @@ public class StartProgramView {
     public static void displayNextView(){
         MainMenuView mainMenuView = new MainMenuView();//need to create MainMenuView class.
         mainMenuView.display();
-        System.out.println("Goodbye! Thanks for playing!");
+        console.println("Goodbye! Thanks for playing!");
     }
 
-    private static String getPlayerName() {
+    private static String getPlayerName() throws IOException {
         String playerName = "";
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         do{
-            System.out.println("Please enter your name: ");
-            playerName = keyboard.nextLine();
+            console.println("Please enter your name: ");
+            playerName = keyboard.readLine();
             playerName = playerName.trim();
             if(playerName.length()<2)
-                System.out.println("Invalid input: Name must be at least 2 characters.");
+                console.println("Invalid input: Name must be at least 2 characters.");
             
         }
         while(playerName.length()<2);
@@ -58,7 +63,7 @@ public class StartProgramView {
     }
 
     private void displayBanner() {
-        System.out.println(
+        console.println(
                   "\n***********************************************************"
                 + "\nWelcome to Pharaph's court. You have been summoned here"
                 + "\nto assume your new rola as Agricoltural Overseer. You"

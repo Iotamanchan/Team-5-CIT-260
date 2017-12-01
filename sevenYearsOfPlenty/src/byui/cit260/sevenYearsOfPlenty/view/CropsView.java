@@ -9,9 +9,12 @@ import byui.cit260.seveYearsOfPlenty.exceptions.CropsControlException;
 import byui.cit260.sevenYearsOfPlenty.control.CropsControl;
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
 import byui.cit260.sevenYearsOfPlenty.model.Game;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
  *
@@ -19,6 +22,8 @@ import java.util.logging.Logger;
  */
 public class CropsView {
     private static final Scanner keyboard = new Scanner(System.in);
+    protected final static BufferedReader keyboard1 = SevenYearsOfPlenty.getInFile();
+    protected final static PrintWriter console = SevenYearsOfPlenty.getOutFile();
     
     private static Game theGame = Game.getGame();
     private static Crops theCrop = Game.getCrop();
@@ -35,14 +40,15 @@ public class CropsView {
     do
     {
         fail = false;
-       System.out.print("\nHow many acres of land do you wish to buy? ");      
+       console.print("\nHow many acres of land do you wish to buy? ");      
        toBuy = keyboard.nextInt();
        try{
            CropsControl.buyLand(theCrop, toBuy, price);
        }
        catch(CropsControlException e){
-           System.out.println("I am sorry master, I cannot do this.");
-           System.out.println(e.getMessage());
+           //System.out.println("I am sorry master, I cannot do this.");
+           //System.out.println(e.getMessage());
+           ErrorView.display("CropsView", "Error reading input" + e.getMessage());
            fail = true;
        }
        //if(toBuy < 0)
@@ -73,6 +79,7 @@ public class CropsView {
         
         if (selection.length() < 1) {
             System.out.println("\n*** Invalid Selection *** Try again");
+            //ErrorView.display(this.getClass().getName(), "Error reading input");
             continue;
         }
         
