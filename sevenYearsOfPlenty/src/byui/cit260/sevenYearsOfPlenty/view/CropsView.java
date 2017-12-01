@@ -15,6 +15,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sevenyearsofplenty.SevenYearsOfPlenty;
+import java.io.FileWriter;
 
 /**
  *
@@ -175,8 +176,18 @@ do {
 // scanner.close();
  return fed;
     }*/
+   
+//Author James
+public static void ListAnimals() throws Exception {
+    FileWriter fw = new FileWriter("animals.txt");
+
+    fw.write("15 cows\n" + "23 oxen\n" + "29 pigs\n" + "38 chickens\n" + "84 Llama" );
+
+    fw.close();
+}
+} 
     
-    }
+    
     
    
 
