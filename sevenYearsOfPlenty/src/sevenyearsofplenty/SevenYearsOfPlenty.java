@@ -2,6 +2,7 @@ package sevenyearsofplenty;
 
 
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
+import byui.cit260.sevenYearsOfPlenty.model.Game;
 import byui.cit260.sevenYearsOfPlenty.model.Location;
 import byui.cit260.sevenYearsOfPlenty.model.Player;
 import byui.cit260.sevenYearsOfPlenty.model.Map;
@@ -29,6 +30,8 @@ public class SevenYearsOfPlenty {
     /**
      * @param args the command line arguments
      */
+    private static Game currentGame = null;
+    
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     
@@ -113,6 +116,14 @@ public class SevenYearsOfPlenty {
             
         }
         
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        SevenYearsOfPlenty.currentGame = currentGame;
     }
 
     public static PrintWriter getOutFile() {

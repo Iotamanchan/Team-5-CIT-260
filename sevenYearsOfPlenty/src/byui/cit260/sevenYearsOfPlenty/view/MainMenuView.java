@@ -5,9 +5,15 @@
  */
 package byui.cit260.sevenYearsOfPlenty.view;
 
+import byui.cit260.seveYearsOfPlenty.exceptions.GameControlException;
 import byui.cit260.sevenYearsOfPlenty.control.GameControl;
 import byui.cit260.sevenYearsOfPlenty.model.Game;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
@@ -15,6 +21,9 @@ import sevenyearsofplenty.SevenYearsOfPlenty;
  * @author Ruben
  */
 public class MainMenuView extends View{
+    protected final static BufferedReader keyboard= SevenYearsOfPlenty.getInFile();
+    protected final static PrintWriter console = SevenYearsOfPlenty.getOutFile();
+    
     private static final String menu = "\n"
                 + "\n******************************"
                 + "\n**********Main  Menu**********"
@@ -74,7 +83,13 @@ public class MainMenuView extends View{
                 displayHelpMenu();
                 break;
             case 4:
+        {
+            try {
                 saveGame();
+            } catch (GameControlException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 5:
                 quitGame();
@@ -94,7 +109,16 @@ public class MainMenuView extends View{
     }
 
     private void startExistingGame() {
-        System.out.println("startExistingGame called");
+        //System.out.println("startExistingGame called");
+        this.console.println("\n\nEnter the file path for gile where the game is to be saved");
+        try{
+            String filePath = this.keyboard.readLine();
+            GameControl.getSavedGame(filePath);
+        }catch (Exception ex){
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -104,8 +128,16 @@ public class MainMenuView extends View{
         //System.out.println("displayHelpMenu called");
     }
 
-    private void saveGame() {
-        System.out.println("saveGame called");
+    private void saveGame() throws GameControlException {
+        //System.out.println("saveGame called");
+        this.console.println("\n\nEnter the file path for file where the game is to be saved");
+        try {
+            String filePath = this.keyboard.readLine();
+            GameControl.saveGame(SevenYearsOfPlenty.getCurrentGame(), filePath);
+        } catch (IOException ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
     }
 
     private void quitGame() {

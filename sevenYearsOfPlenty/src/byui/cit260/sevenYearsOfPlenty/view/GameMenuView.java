@@ -89,7 +89,7 @@ class GameMenuView extends View{
         
     }
     
-    private void manageCrops() throws CropsControlException{
+    private static void manageCrops() throws CropsControlException{
         //System.out.println("manageCrops");
         //CropsView cropsView = new CropsView();
         CropsView.buyLandView();

@@ -33,14 +33,15 @@ public class CropsView {
     boolean fail;
      int toBuy = 0;
      int price = CropsControl.calcLandCost();
-     System.out.format("Land is selling for %d bushels per acre.%n",price);
+     //System.out.format("Land is selling for %d bushels per acre.%n",price);
+     console.println("Land is selling for " + price + " per acre.");
 
      int wheat = theCrop.getWheatInStore(); 
      int population = theCrop.getPopulation();
     do
     {
         fail = false;
-       console.print("\nHow many acres of land do you wish to buy? ");      
+       console.println("\nHow many acres of land do you wish to buy? ");      
        toBuy = keyboard.nextInt();
        try{
            CropsControl.buyLand(theCrop, toBuy, price);
@@ -48,7 +49,7 @@ public class CropsView {
        catch(CropsControlException e){
            //System.out.println("I am sorry master, I cannot do this.");
            //System.out.println(e.getMessage());
-           ErrorView.display("CropsView", "Error reading input" + e.getMessage());
+           ErrorView.display("CropsView", "Error reading input: " + e.getMessage());
            fail = true;
        }
        //if(toBuy < 0)
@@ -61,7 +62,7 @@ public class CropsView {
        //       System.out.println("I am sorry master, I cannot do this.");
        //       //System.out.println("You do not have enough wheat to buy this much land.");
       //   }
-    } while(false);
+    } while(fail);
         //try {
        //     CropsControl.buyLand(theCrop, toBuy, price);
        // } catch (CropsControlException ex) {
@@ -78,8 +79,8 @@ public class CropsView {
         selection = selection.trim();
         
         if (selection.length() < 1) {
-            System.out.println("\n*** Invalid Selection *** Try again");
-            //ErrorView.display(this.getClass().getName(), "Error reading input");
+            //System.out.println("\n*** Invalid Selection *** Try again");
+            ErrorView.display(this.getClass().getName(), "Error reading input");
             continue;
         }
         
@@ -111,8 +112,9 @@ public class CropsView {
                    CropsControl.calcWheatInStore(theCrop, 0, 0, 0);//fill in these values
                }
                catch(CropsControlException e){
-                   System.out.println("Sorry not enough wheat.");
-                   System.out.println(e.getMessage());
+                   //System.out.println("Sorry not enough wheat.");
+                   //System.out.println(e.getMessage());
+                   ErrorView.display("CropsView", "Error reading input: " + e.getMessage());
                }
                
 
@@ -127,21 +129,20 @@ public class CropsView {
         boolean fail;
      int toSell = 0;
      int price = CropsControl.calcLandCost();
-     System.out.format("Land is selling for %d bushels per acre.%n",price);
-
+     //console.format("Land is selling for %d bushels per acre.%n",price);
+     console.println("Land is selling for " + price + " per acre.");
      //int wheat = theCrop.getWheatInStore(); 
      //int population = theCrop.getPopulation();
     do
     {
         fail = false;
-       System.out.print("\nHow many acres of land do you wish to sell? ");      
+       console.println("\nHow many acres of land do you wish to sell? ");      
        toSell = keyboard.nextInt();
        try{
            CropsControl.sellLand(theCrop, toSell, price);
        }
        catch(CropsControlException e){
-           System.out.println("Sorry, this cannot be done.");
-           System.out.println(e.getMessage());
+           ErrorView.display("CropsView", "Error reading input: " + e.getMessage());
            fail = true;
        }
       // if(toSell < 0)
