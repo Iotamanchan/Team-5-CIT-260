@@ -5,13 +5,19 @@
  */
 package byui.cit260.sevenYearsOfPlenty.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
  *
  * @author Ruben
  */
 class HelpMenuView extends View{
+    protected final static BufferedReader keyboard = SevenYearsOfPlenty.getInFile();
+    protected final static PrintWriter console = SevenYearsOfPlenty.getOutFile();
+    
     private static final String menu = "\n"
                 + "\n******************************"
                 + "\n**********Help  Menu**********"
@@ -46,30 +52,31 @@ class HelpMenuView extends View{
     public int doAction(int option) {
         switch (option){
             case 1:
-                System.out.println("The game objective is to maintain a villiage in Egypt during"
-                        + "the seven years of plenty, in prepartion for the seven years of"
-                        + "famine from the bible.  You need to set aside enough food to both"
-                        + "feed your people and give to Pharaoh per year.");
+                console.println("The game objective is to maintain a villiage in Egypt during"
+                        + "\nthe seven years of plenty, in prepartion for the seven years of"
+                        + "\nfamine from the bible.  You need to set aside enough food to both"
+                        + "\nfeed your people and give to Pharaoh per year.");
                 break;
             case 2: 
-                System.out.println("Joseph is pharaoh over Egypt, son of Jacob sold into "
-                        + "bondage by his jealous brothers.  He rose from slavery to "
-                        + "pharaoh of Egypt.");
+                console.println("Joseph is pharaoh over Egypt, son of Jacob sold into "
+                        + "\nbondage by his jealous brothers.  He rose from slavery to "
+                        + "\npharaoh of Egypt.");
                 break;
             case 3: 
-                System.out.println("View Map placeholder");
+                console.println("View Map placeholder");
                 break;
             case 4:
-                System.out.println("Move placeholder");
+                console.println("Move placeholder");
                 break;
             case 5:
-                System.out.println("Display placeholder");
+                console.println("Display placeholder");
                 break;
             case 6:
-                System.out.println("Quitting! placeholder");
+                console.println("Quitting! placeholder");
                 break;
             default:
-                System.out.println("Invalid Selection. Please try again");
+                //console.println("Invalid Selection. Please try again");
+                ErrorView.display("HelpMenuView", "Invalid selection. Please try again.");
                 break;
         }
         return option;

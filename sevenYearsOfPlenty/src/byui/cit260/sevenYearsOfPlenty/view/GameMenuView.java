@@ -10,14 +10,19 @@ import byui.cit260.sevenYearsOfPlenty.control.MapControl;
 import byui.cit260.sevenYearsOfPlenty.model.Map;
 import java.util.Scanner;
 import byui.cit260.sevenYearsOfPlenty.control.CropsControl;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
  *
  * @author Riley Hein
  */
 class GameMenuView extends View{
+    protected final static BufferedReader keyboard = SevenYearsOfPlenty.getInFile();
+    protected final static PrintWriter console = SevenYearsOfPlenty.getOutFile();
     private static final String menu = "\n"
                 +"\n******************************"
                 +"\n**********Game  Menu**********"
@@ -54,7 +59,7 @@ class GameMenuView extends View{
             try {
                 this.manageCrops();
             } catch (CropsControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display("GameMenuView", ex.getMessage());
             }
         }
                 break;
@@ -65,7 +70,7 @@ class GameMenuView extends View{
                 this.returnToMainMenu();
                 break;
             default:
-                System.out.println("\nInvalid Selection. Please try again.");
+                console.println("\nInvalid Selection. Please try again.");
                 break;
         }
         return option;
@@ -104,7 +109,7 @@ class GameMenuView extends View{
     
     
     private void returnToMainMenu(){
-        System.out.println("returnToMainMenu");
+        console.println("returnToMainMenu");
         
     }
 }

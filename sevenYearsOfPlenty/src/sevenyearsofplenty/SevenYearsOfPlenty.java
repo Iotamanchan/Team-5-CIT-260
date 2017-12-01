@@ -38,6 +38,7 @@ public class SevenYearsOfPlenty {
     private static PrintWriter logFile = null;
     
     public static void main(String[] args) {
+        
         Player playerOne = new Player();
         
         playerOne.setName("Bryan");

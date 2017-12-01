@@ -5,7 +5,10 @@
  */
 package byui.cit260.sevenYearsOfPlenty.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import sevenyearsofplenty.SevenYearsOfPlenty;
 
 /**
  *
@@ -15,6 +18,8 @@ public abstract class View implements ViewInterface {
     
     protected String displayMessage;
     protected int max;
+    protected final static BufferedReader keyboard = SevenYearsOfPlenty.getInFile();
+    protected final static PrintWriter console = SevenYearsOfPlenty.getOutFile();
     
     public View(){ 
      
@@ -41,11 +46,11 @@ public abstract class View implements ViewInterface {
         int inputValue;
         Scanner keyboard = new Scanner(System.in);
         do{
-           System.out.println("Please enter an option:");
+           console.println("Please enter an option: ");
            inputValue = keyboard.nextInt();
            
            if(inputValue < 1 || inputValue > max){
-               System.out.println("Invalid Option.");
+               ErrorView.display("View", "Invalid Option.");
            }
         }
         while(inputValue < 1 || inputValue > max);
