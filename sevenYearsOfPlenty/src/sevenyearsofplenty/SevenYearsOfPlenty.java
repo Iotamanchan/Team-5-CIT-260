@@ -67,7 +67,7 @@ public class SevenYearsOfPlenty {
         
         map.setRowCount(1);
         
-        int mapRowCount = map.rowCount();
+        //int mapRowCount = map.rowCount();
         
         System.out.println(map.toString());
         

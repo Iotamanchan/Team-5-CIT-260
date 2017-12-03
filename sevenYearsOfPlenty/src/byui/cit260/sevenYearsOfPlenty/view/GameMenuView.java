@@ -78,9 +78,8 @@ class GameMenuView extends View{
     
     private void viewMap(){
         //System.out.println("viwMap");
-        Map map = new Map();
-        System.out.println(map.getRowCount());
-        System.out.println(map.getColCount());
+        MapView map = new MapView();
+        map.displayMap();
         
     }
     

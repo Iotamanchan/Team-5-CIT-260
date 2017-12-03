@@ -12,75 +12,132 @@ import java.io.Serializable;
  * @author rileyhein//riley hein
  */
 public class Map implements Serializable {
+
     
-    private int rowCount = 5;
-    private int colCount = 5;
+    private int rowCount;
+    private int colCount;
+    private int mapIndex;
     private Location[][] locations;
-    
+    //private ArrayList<Location> locations = new ArrayList<Location>();
+
     public Map(){
         
     }
-    public Map(int row, int col){
-        row = rowCount;
-        col = colCount;
-   
-    }
-    public int getRowCount() {
-        return rowCount;
-    }
-    
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
-    }
-    
-    public int getColCount() {
-        return colCount;
-    }
-    
-    public void setColCount(int colCount){
-        this.colCount = colCount;
-    }
 
-    public int rowCount() {
-        return rowCount;
+    public Map(int row, int column) {
+        locations = new Location[row][column];
+        //Location location = new Location();
+        //locations[][] = new Location;
+        
+        String description = "Describing map locations";
+        
+        locations[0][0] = new Location();
+        locations[0][0].setDescription(description);
+        locations[0][0].setSymbol("DESCR");
+        locations[0][1] = new Location();
+        locations[0][1].setDescription(description);
+        locations[0][1].setSymbol("DESCR");
+        locations[0][2] = new Location();
+        locations[0][2].setDescription(description);
+        locations[0][2].setSymbol("DESCR");
+        locations[0][3] = new Location();
+        locations[0][3].setDescription(description);
+        locations[0][3].setSymbol("DESCR");
+        locations[0][4] = new Location();
+        locations[0][4].setDescription(description);
+        locations[0][4].setSymbol("DESCR");
+        locations[1][0] = new Location();
+        locations[1][0].setDescription(description);
+        locations[1][0].setSymbol("DESCR");
+        locations[1][1] = new Location();
+        locations[1][1].setDescription(description);
+        locations[1][1].setSymbol("DESCR");
+        locations[1][2] = new Location();
+        locations[1][2].setDescription(description);
+        locations[1][2].setSymbol("DESCR");
+        locations[1][3] = new Location();
+        locations[1][3].setDescription(description);
+        locations[1][3].setSymbol("DESCR");
+        locations[1][4] = new Location();
+        locations[1][4].setDescription(description);
+        locations[1][4].setSymbol("DESCR");
+        locations[2][0] = new Location();
+        locations[2][0].setDescription(description);
+        locations[2][0].setSymbol("DESCR");
+        locations[2][1] = new Location();
+        locations[2][1].setDescription(description);
+        locations[2][1].setSymbol("DESCR");
+        locations[2][2] = new Location();
+        locations[2][2].setDescription(description);
+        locations[2][2].setSymbol("DESCR");
+        locations[2][3] = new Location();
+        locations[2][3].setDescription(description);
+        locations[2][3].setSymbol("DESCR");
+        locations[2][4] = new Location();
+        locations[2][4].setDescription(description);
+        locations[2][4].setSymbol("DESCR");
+        locations[3][0] = new Location();
+        locations[3][0].setDescription(description);
+        locations[3][0].setSymbol("DESCR");
+        locations[3][1] = new Location();
+        locations[3][1].setDescription(description);
+        locations[3][1].setSymbol("DESCR");
+        locations[3][2] = new Location();
+        locations[3][2].setDescription(description);
+        locations[3][2].setSymbol("DESCR");
+        locations[3][3] = new Location();
+        locations[3][3].setDescription(description);
+        locations[3][3].setSymbol("DESCR");
+        locations[3][4] = new Location();
+        locations[3][4].setDescription(description);
+        locations[3][4].setSymbol("DESCR");
+        locations[4][0] = new Location();
+        locations[4][0].setDescription(description);
+        locations[4][0].setSymbol("DESCR");
+        locations[4][1] = new Location();
+        locations[4][1].setDescription(description);
+        locations[4][1].setSymbol("DESCR");
+        locations[4][2] = new Location();
+        locations[4][2].setDescription(description);
+        locations[4][2].setSymbol("DESCR");
+        locations[4][3] = new Location();
+        locations[4][3].setDescription(description);
+        locations[4][3].setSymbol("DESCR");
+        locations[4][4] = new Location();
+        locations[4][4].setDescription(description);
+        locations[4][4].setSymbol("DESCR");
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.rowCount;
-        hash = 29 * hash + this.colCount;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (this.rowCount != other.rowCount) {
-            return false;
-        }
-        if (this.colCount != other.colCount) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + '}';
-    }
-
+ 
     public Location[][] getLocations() {
         return locations;
     }
-   
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
+   
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public int getColCount() {
+        return colCount;
+    }
+
+    public void setColCount(int colCount) {
+        this.colCount = colCount;
+    }
+
+    public int getMapIndex() {
+        return mapIndex;
+    }
+
+    public void setMapIndex(int mapIndex) {
+        this.mapIndex = mapIndex;
+    }
+}

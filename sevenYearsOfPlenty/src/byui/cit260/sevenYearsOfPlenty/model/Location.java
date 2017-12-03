@@ -12,20 +12,23 @@ import java.util.Objects;
  *
  * @author The Whopper
  */
-public class Location implements Serializable{
+public class Location implements Serializable {
     
-    //class instance variable
     private int row;
-    private int colummn;
+    private int column;
     private String description;
     private String symbol;
+    private Map map;
+    private String _locationName;
     
 
     public Location() {
     }
+    
+    public Location(String locationName) {
+        this._locationName = locationName;
+    }
 
-    
-    
     public int getRow() {
         return row;
     }
@@ -34,12 +37,12 @@ public class Location implements Serializable{
         this.row = row;
     }
 
-    public int getColummn() {
-        return colummn;
+    public int getColumn() {
+        return column;
     }
 
-    public void setColummn(int colummn) {
-        this.colummn = colummn;
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     public String getDescription() {
@@ -58,13 +61,34 @@ public class Location implements Serializable{
         this.symbol = symbol;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public String getLocationName() {
+        return _locationName;
+    }
+
+   
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", description=" + description + ", symbol=" + symbol + ", map=" + map + ", _locationName=" + _locationName + '}';
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + this.row;
-        hash = 37 * hash + this.colummn;
-        hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + Objects.hashCode(this.symbol);
+        hash = 11 * hash + this.row;
+        hash = 11 * hash + this.column;
+        hash = 11 * hash + Objects.hashCode(this.description);
+        hash = 11 * hash + Objects.hashCode(this.symbol);
+        hash = 11 * hash + Objects.hashCode(this.map);
+        hash = 11 * hash + Objects.hashCode(this._locationName);
         return hash;
     }
 
@@ -83,7 +107,7 @@ public class Location implements Serializable{
         if (this.row != other.row) {
             return false;
         }
-        if (this.colummn != other.colummn) {
+        if (this.column != other.column) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -92,14 +116,19 @@ public class Location implements Serializable{
         if (!Objects.equals(this.symbol, other.symbol)) {
             return false;
         }
+        if (!Objects.equals(this._locationName, other._locationName)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", colummn=" + colummn + ", description=" + description + ", symbol=" + symbol + '}';
-    }
     
+
     
+   
+   
     
 }

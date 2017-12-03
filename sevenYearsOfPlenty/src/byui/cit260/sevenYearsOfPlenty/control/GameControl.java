@@ -50,7 +50,8 @@ public class GameControl {
         Game.setGame(game);
         createCrops();
         
-        Map theMap = new Map(5,5);
+        createMap();
+        //Map theMap = new Map(5,5);
         
         //map.setColCount(5);
         //map.setRowCount(5);
@@ -80,5 +81,9 @@ public class GameControl {
         }
         SevenYearsOfPlenty.setCurrentGame(currentGame);
     }
-
+public static void createMap() {
+          
+        Map theMap = new Map(5,5);//sets the map up to be 5X5
+        Game.setMap(theMap);
+    }
 }

@@ -17,6 +17,8 @@ public class Game implements Serializable{
     
     private static Crops theCrops = null;
     private static Game theGame = null;
+    private static Map theMap = null;
+    
     public Game() {
     }
 
@@ -47,8 +49,16 @@ public class Game implements Serializable{
         return theGame;
     }
 
-    public static void setGame(Game theGame) {
+    public static void setGame(Game _gameRef) {
         Game.theGame = theGame;
+    }
+
+    public static Map getMap() {
+        return theMap;
+    }
+
+    public static void setMap(Map _mapRef) {
+        theMap = _mapRef;
     }
     
 }
