@@ -5,6 +5,7 @@
  */
 package byui.cit260.sevenYearsOfPlenty.control;
 
+import byui.cit260.seveYearsOfPlenty.exceptions.CropsControlException;
 import byui.cit260.sevenYearsOfPlenty.model.Crops;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -22,7 +23,7 @@ public class CropsControlTest {
      * Test of buyLand method, of class CropsControl.
      */
     @Test
-        public void testBuyLand1()
+        public void testBuyLand1() throws CropsControlException
     {
         System.out.println("** buyLand test case 1 **");
         Crops theCrops = new Crops();
@@ -55,7 +56,7 @@ public class CropsControlTest {
      * Test of buyLand method, of class CropsControl.
      */
     @Test
-    public void testBuyLand() {
+    public void testBuyLand() throws CropsControlException {
         System.out.println("buyLand");
         Crops theCrops = null;
         int toBuy = 0;
@@ -72,7 +73,7 @@ public class CropsControlTest {
      * Test of calcHarvest method, of class CropsControl.
      */
     @Test
-    public void testCalcHarvest() {
+    public void testCalcHarvest() throws CropsControlException {
         System.out.println("calcHarvest");
         double acresPlanted = 0.0;
         double store = 0.0;
@@ -87,7 +88,7 @@ public class CropsControlTest {
      * Test of calcPharaohsShare method, of class CropsControl.
      */
     @Test
-     public void testCalcPharaohsShare() {
+     public void testCalcPharaohsShare() throws CropsControlException {
         System.out.println("calcPharaohsShare");
         double harvest = 1;
         double expResult = 0.92;
@@ -107,7 +108,7 @@ public class CropsControlTest {
      * Test of calcFed method, of class CropsControl.
      */
     @Test
-    public void testCalcFed() {
+    public void testCalcFed() throws CropsControlException {
         System.out.println("calcFed");
         double store = 0.0;
         double expResult = 0.0;

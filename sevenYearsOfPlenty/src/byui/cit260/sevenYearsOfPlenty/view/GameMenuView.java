@@ -98,7 +98,13 @@ class GameMenuView extends View{
         //CropsView cropsView = new CropsView();
         CropsView.buyLandView();
         CropsView.sellLandView();
-        //CropsView.fedView();
+
+        try {
+            CropsView.ListAnimals();
+            //CropsView.fedView();
+        } catch (Exception ex) {
+            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void endTheTurn(){

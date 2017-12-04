@@ -28,8 +28,10 @@ public class CropsView {
     
     private static Game theGame = Game.getGame();
     private static Crops theCrop = Game.getCrop();
+     
     
     public static void buyLandView()
+            
 {
     boolean fail;
      int toBuy = 0;
@@ -182,7 +184,7 @@ public static void ListAnimals() throws Exception {
     FileWriter fw = new FileWriter("animals.txt");
 
     fw.write("15 cows\n" + "23 oxen\n" + "29 pigs\n" + "38 chickens\n" + "84 Llama" );
-
+    System.out.println("15 cows\n" + "23 oxen\n" + "29 pigs\n" + "38 chickens\n" + "84 Llama");
     fw.close();
 }
 } 

@@ -1,0 +1,5 @@
+15 cows
+23 oxen
+29 pigs
+38 chickens
+84 Llama
