@@ -165,6 +165,29 @@ public class CropsView {
     
 
 
+}//Riley Hein
+    
+    public static void createCrops() throws Exception{
+    FileWriter fw = new FileWriter("crops.txt");
+    
+    
+        String census = "Year(" +  Game.getCrop().getYear() + ";\n" +
+                        "Population(" +  Game.getCrop().getPopulation() + ";\n" +
+                        "NewPeople(" +  Game.getCrop().getNewPeople() + ";\n" +
+                        "CropYield(" +  Game.getCrop().getCropYield() + ";\n" +
+                        "NumberWhoDied(" +  Game.getCrop().getNumberWhoDied() + ";\n" +
+                        "PharaohsShare(" +  Game.getCrop().getPharaohsShare() + ";\n" +
+                        "WheatInStore(" +  Game.getCrop().getWheatInStore() + ";\n" +
+                        "Acres(" +  Game.getCrop().getAcres() + ";\n" +
+                        "Harvest(" +  Game.getCrop().getHarvest() + ";\n" +
+                        "Planted(" +  Game.getCrop().getPlanted() + ";\n" +
+                        "Fed(" +  Game.getCrop().getFed() + ";";
+    
+    fw.write(census);
+     
+    System.out.println(census);
+    
+    fw.close();
 }
     /*public static double fedView(){
         double fed = -1;
@@ -187,6 +210,7 @@ public static void ListAnimals() throws Exception {
     System.out.println("15 cows\n" + "23 oxen\n" + "29 pigs\n" + "38 chickens\n" + "84 Llama");
     fw.close();
 }
+
 } 
     
     
