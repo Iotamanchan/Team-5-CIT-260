@@ -86,4 +86,7 @@ public static void createMap() {
         Map theMap = new Map(5,5);//sets the map up to be 5X5
         Game.setMap(theMap);
     }
+public static void loadGame() {
+    System.out.println("game Loaded");
+}
 }

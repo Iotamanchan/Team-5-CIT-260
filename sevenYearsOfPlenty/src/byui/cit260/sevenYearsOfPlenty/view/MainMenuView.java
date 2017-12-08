@@ -7,6 +7,7 @@ package byui.cit260.sevenYearsOfPlenty.view;
 
 import byui.cit260.seveYearsOfPlenty.exceptions.GameControlException;
 import byui.cit260.sevenYearsOfPlenty.control.GameControl;
+import static byui.cit260.sevenYearsOfPlenty.control.GameControl.loadGame;
 import byui.cit260.sevenYearsOfPlenty.model.Game;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,9 +33,10 @@ public class MainMenuView extends View{
                 + "\n2 - Get & Start a Save Game"
                 + "\n3 - Get Help on How to Play"
                 + "\n4 - Save Game"
-                + "\n5 - Quit"
+                + "\n5 - Load Saved Game"
+                + "\n6 - Quit"
                 + "\n******************************";
-    private static final int MAX = 5;
+    private static final int MAX = 6;
     
     public MainMenuView(){
         super(MAX, menu);
@@ -92,13 +94,18 @@ public class MainMenuView extends View{
         }
                 break;
             case 5:
-                quitGame();
+                loadGame();
                 break;
             default:
                 console.println("\nInvalid Selection. Please try again");
                 break;
+            case 6:
+        {
+            quitGame();
         }
-        return option;
+                break;
+            }   
+        return 0;
     }
 
     private void startNewGame() {

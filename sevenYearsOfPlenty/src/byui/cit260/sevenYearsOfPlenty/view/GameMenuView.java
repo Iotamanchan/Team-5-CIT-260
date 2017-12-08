@@ -98,6 +98,7 @@ class GameMenuView extends View{
         //CropsView cropsView = new CropsView();
         CropsView.buyLandView();
         CropsView.sellLandView();
+        CropsView.calcHarvest();
 
         try {
             CropsView.ListAnimals();

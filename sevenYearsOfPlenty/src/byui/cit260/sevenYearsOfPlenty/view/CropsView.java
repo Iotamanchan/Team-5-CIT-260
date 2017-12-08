@@ -98,6 +98,7 @@ public class CropsView {
     
         public static void calcHarvest(){
             
+            
         }
         
         public static void calcFed(){
