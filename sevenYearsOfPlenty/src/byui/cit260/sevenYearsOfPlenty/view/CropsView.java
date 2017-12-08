@@ -40,7 +40,9 @@ public class CropsView {
      console.println("Land is selling for " + price + " per acre.");
 
      int wheat = theCrop.getWheatInStore(); 
+     console.println("There is  " + wheat + " wheat in store.");
      int population = theCrop.getPopulation();
+     console.println("The population is " + population + " people.");
     do
     {
         fail = false;
