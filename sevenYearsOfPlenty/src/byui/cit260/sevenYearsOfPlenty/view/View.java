@@ -7,6 +7,7 @@ package byui.cit260.sevenYearsOfPlenty.view;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import sevenyearsofplenty.SevenYearsOfPlenty;
 
@@ -43,15 +44,24 @@ public abstract class View implements ViewInterface {
     }
     
     public int getInput() {
-        int inputValue;
+        int inputValue = 0;
         Scanner keyboard = new Scanner(System.in);
         do{
+            try{
+                while(!keyboard.hasNextInt()){
+                    System.out.println("There's been an error. Only numbers are accepted."
+                            + "\nPlease try again.");
+                    keyboard.next();
+                }
            console.println("Please enter an option: ");
            inputValue = keyboard.nextInt();
            
            if(inputValue < 1 || inputValue > max){
                ErrorView.display("View", "Invalid Option.");
            }
+        }catch(InputMismatchException ime){
+            ErrorView.display("View", "Error reading input:" + ime.getMessage());
+        }
         }
         while(inputValue < 1 || inputValue > max);
         return inputValue;

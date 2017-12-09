@@ -63,16 +63,21 @@ class HelpMenuView extends View{
                         + "\npharaoh of Egypt.");
                 break;
             case 3: 
-                console.println("View Map placeholder");
+                console.println("To view the Map, simply select the View Map option"
+                        + "\nunder the Game Menu. It will be option 2."
+                        + "\nFrom there, you may select to view specific coordinates"
+                        + "\nor you might return to the main menu.");
                 break;
             case 4:
-                console.println("Move placeholder");
+                console.println("Under the Game Menu select option 3 to move to a "
+                        + "\nnew location.");
                 break;
             case 5:
-                console.println("Display placeholder");
+                console.println("There are currently no tools or inventory implemented."
+                        + "\nPlease stay tuned as it will be implemented Soon™.");
                 break;
             case 6:
-                console.println("Quitting! placeholder");
+                console.println("Returning to previous Menu.");
                 break;
             default:
                 //console.println("Invalid Selection. Please try again");

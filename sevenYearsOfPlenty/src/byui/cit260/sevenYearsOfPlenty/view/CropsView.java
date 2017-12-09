@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sevenyearsofplenty.SevenYearsOfPlenty;
 import java.io.FileWriter;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -37,18 +38,25 @@ public class CropsView {
      int toBuy = 0;
      int price = CropsControl.calcLandCost();
      //System.out.format("Land is selling for %d bushels per acre.%n",price);
-     console.println("Land is selling for " + price + " per acre.");
-
      int wheat = theCrop.getWheatInStore(); 
      console.println("There is  " + wheat + " wheat in store.");
      int population = theCrop.getPopulation();
-     console.println("The population is " + population + " people.");
+     console.println("The population is " + population + " people."); 
+     
+     console.println("Land is selling for " + price + " per acre.");
+     console.println("\nHow many acres of land do you wish to buy?");  
+     
     do
     {
         fail = false;
-       console.println("\nHow many acres of land do you wish to buy? ");      
-       toBuy = keyboard.nextInt();
+       //toBuy = keyboard.nextInt();
        try{
+           while(!keyboard.hasNextInt()){
+               console.println("There's been an error. Only numbers are accepted."
+                       + "\nPlease try again.");
+               keyboard.next();
+           }
+           toBuy = keyboard.nextInt();
            CropsControl.buyLand(theCrop, toBuy, price);
        }
        catch(CropsControlException e){
@@ -56,6 +64,8 @@ public class CropsView {
            //System.out.println(e.getMessage());
            ErrorView.display("CropsView", "Error reading input: " + e.getMessage());
            fail = true;
+       }catch(InputMismatchException ime){
+           ErrorView.display("CropsView", "Error reading input:" + ime.getMessage());
        }
        //if(toBuy < 0)
        //{
@@ -139,17 +149,25 @@ public class CropsView {
      console.println("Land is selling for " + price + " per acre.");
      //int wheat = theCrop.getWheatInStore(); 
      //int population = theCrop.getPopulation();
+     console.println("\nHow many acres of land do you wish to sell? "); 
     do
     {
         fail = false;
-       console.println("\nHow many acres of land do you wish to sell? ");      
-       toSell = keyboard.nextInt();
+       
        try{
+           while(!keyboard.hasNextInt()){
+               console.println("There's been an error. Only numbers are accepted."
+                       + "\nPlease try again.");
+               keyboard.next();
+           }
+           toSell = keyboard.nextInt();
            CropsControl.sellLand(theCrop, toSell, price);
        }
        catch(CropsControlException e){
            ErrorView.display("CropsView", "Error reading input: " + e.getMessage());
            fail = true;
+       }catch(InputMismatchException ime){
+           ErrorView.display("CropsView", "Error reading input:" + ime.getMessage());
        }
       // if(toSell < 0)
       // {
